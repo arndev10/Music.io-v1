@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getNoteNameEs, transposeNote } from '../music/noteUtils'
+import { transposeNote } from '../music/noteUtils'
 import type { NoteName } from '../types/music'
 
 const FIFTHS_ORDER: NoteName[] = ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#', 'G#', 'A#', 'D#', 'F']
@@ -48,11 +48,10 @@ export function CircleOfFifths ({ selectedRoot, onSelectRoot }: CircleOfFifthsPr
   }
 
   function getTitle (i: number): string {
-    if (i === selectedIdx) return getNoteNameEs(FIFTHS_ORDER[i])
     if (neighbors && (i === neighbors.prev || i === neighbors.next)) {
       return 'Tonalidad cercana: comparte muchas notas'
     }
-    return getNoteNameEs(FIFTHS_ORDER[i])
+    return FIFTHS_ORDER[i]
   }
 
   return (
@@ -108,7 +107,7 @@ export function CircleOfFifths ({ selectedRoot, onSelectRoot }: CircleOfFifthsPr
                   dominantBaseline="middle"
                   className="pointer-events-none text-[5px] font-medium fill-slate-700 dark:fill-slate-200"
                 >
-                  {getNoteNameEs(note)}
+                  {note}
                 </text>
                 <circle
                   cx={inner.x}

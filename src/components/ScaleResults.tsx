@@ -1,5 +1,4 @@
 import type { ScaleMatch } from '../types/music'
-import { getNoteNameEs } from '../music/noteUtils'
 
 interface ScaleResultsProps {
   results: ScaleMatch[]
@@ -40,7 +39,7 @@ export function ScaleResults ({
           >
             <div className="flex items-baseline justify-between gap-2">
               <span className="font-medium">
-                {getNoteNameEs(match.root)} {match.scaleNameEs}
+                {match.root} {match.scaleNameEs}
               </span>
               <span className="text-xs text-slate-500 dark:text-slate-400">
                 {match.root} {match.scaleNameEn}
