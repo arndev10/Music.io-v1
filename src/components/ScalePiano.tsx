@@ -1,4 +1,5 @@
 import { toRoman } from '../music/romanNumerals'
+import { playNote } from '../music/playNote'
 import type { NoteName } from '../types/music'
 
 const WHITE_KEYS: NoteName[] = ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'A', 'B']
@@ -48,9 +49,11 @@ export function ScalePiano ({ scaleNotes, tonic, inputNotes }: ScalePianoProps) 
       <div className="relative h-24 sm:h-28">
         <div className="flex h-full border border-neutral-400 dark:border-neutral-600">
           {WHITE_KEYS.map((note, i) => (
-            <div
+            <button
               key={`w-${i}-${note}`}
-              className={`relative flex flex-1 flex-col items-center justify-end border-r border-neutral-400 pb-1 last:border-r-0 dark:border-neutral-600 ${whiteKeyStyle(note)}`}
+              type="button"
+              onClick={() => playNote(note)}
+              className={`relative flex flex-1 flex-col items-center justify-end border-r border-neutral-400 pb-1 last:border-r-0 dark:border-neutral-600 cursor-pointer ${whiteKeyStyle(note)}`}
               title={
                 scaleNotes
                   ? (getDegreeInScale(note, scaleNotes)
@@ -62,7 +65,7 @@ export function ScalePiano ({ scaleNotes, tonic, inputNotes }: ScalePianoProps) 
               <span className="text-[10px] font-medium text-neutral-700 dark:text-neutral-300">
                 {note}
               </span>
-            </div>
+            </button>
           ))}
         </div>
         <div className="absolute left-0 top-0 flex h-12 w-full pointer-events-none sm:h-14">
@@ -70,9 +73,11 @@ export function ScalePiano ({ scaleNotes, tonic, inputNotes }: ScalePianoProps) 
             const note = BLACK_NOTES[k]
             const leftPct = (whiteIdx / 14) * 100 + (1 / 14) * 50
             return (
-              <div
+              <button
                 key={`b-${k}-${note}`}
-                className={`absolute flex h-12 w-[6.5%] -translate-x-1/2 flex-col items-center justify-end rounded-b border border-neutral-800 pb-0.5 pointer-events-auto dark:border-neutral-700 sm:h-14 ${blackKeyStyle(note)}`}
+                type="button"
+                onClick={() => playNote(note)}
+                className={`absolute flex h-12 w-[6.5%] -translate-x-1/2 flex-col items-center justify-end rounded-b border border-neutral-800 pb-0.5 pointer-events-auto cursor-pointer dark:border-neutral-700 sm:h-14 ${blackKeyStyle(note)}`}
                 style={{ left: `${leftPct}%` }}
                 title={
                   scaleNotes
@@ -85,7 +90,7 @@ export function ScalePiano ({ scaleNotes, tonic, inputNotes }: ScalePianoProps) 
                 <span className="text-[9px] font-medium text-white">
                   {note}
                 </span>
-              </div>
+              </button>
             )
           })}
         </div>

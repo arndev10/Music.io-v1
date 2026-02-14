@@ -1,4 +1,5 @@
 import { getAllChromaticNotes } from '../music/noteUtils'
+import { playNote } from '../music/playNote'
 import type { NoteName } from '../types/music'
 
 interface NoteSelectorProps {
@@ -70,7 +71,10 @@ export function NoteSelector ({
           <button
             key={note}
             type="button"
-            onClick={() => onAddNote(note)}
+            onClick={() => {
+              playNote(note)
+              onAddNote(note)
+            }}
             title={scaleSet && outsideSet.has(note) && selectedSet.has(note) ? 'Nota fuera de la escala seleccionada' : `Agregar ${note}`}
             className={`min-h-[48px] rounded-lg px-2 py-2.5 text-sm font-medium transition-all active:scale-[0.98] sm:min-h-0 sm:px-4 sm:py-2 ${getNoteStyle(note)}`}
           >
