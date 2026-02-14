@@ -174,6 +174,10 @@ export default function App () {
           onLoadEntry={handleLoadHistory}
           onClear={handleClearHistory}
         />
+
+        <footer className="py-6 text-center text-sm text-slate-500 dark:text-slate-400">
+          Made by Arndev10
+        </footer>
       </main>
     </div>
   )
