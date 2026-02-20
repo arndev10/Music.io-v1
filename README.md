@@ -1,22 +1,30 @@
 # Music.io
 
-Aplicación web educativa para analizar escalas a partir de notas seleccionadas. Pensada para guitarra y teoría musical.
+Educational web application for analyzing musical scales from selected notes. Designed for guitar players and music theory students.
 
-## Stack
+## Features
 
-- React + TypeScript
-- Vite
-- TailwindCSS
-- Sin backend (todo local, persistencia en LocalStorage)
+- Chromatic note selection (12 toggle buttons)
+- Top 3 probable scales with match % and coverage
+- Scale detail: degree/note/name table, harmonic functions
+- Interactive circle of fifths (click to set tonic)
+- Learning panel per scale
+- History (LocalStorage, last 20 analyses)
+- Export: summary, degree table, JSON, TXT, full report
 
-## Uso
+## Tech Stack
+
+**Frontend:** React, TypeScript, Vite, TailwindCSS
+**Storage:** LocalStorage (no backend)
+
+## Setup
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre [http://localhost:5173](http://localhost:5173).
+Runs at `http://localhost:5173`
 
 ## Build
 
@@ -24,14 +32,8 @@ Abre [http://localhost:5173](http://localhost:5173).
 npm run build
 ```
 
-Listo para desplegar en Vercel/Netlify (salida en `dist/`).
+Static output in `dist/` — deploy to Vercel or Netlify.
 
-## Funcionalidad MVP
+## License
 
-- Selección de notas cromáticas (12 botones toggle)
-- Top 3 escalas probables con % coincidencia y cobertura
-- Detalle de escala: tabla grado/nota/nombre, funciones armónicas
-- Círculo de quintas interactivo (click para fijar tónica)
-- Panel de aprendizaje por escala
-- Historial (LocalStorage, últimas 20)
-- Copiar/exportar: resumen, tabla de grados, JSON, TXT, reporte
+Open source — available for personal and educational use.
